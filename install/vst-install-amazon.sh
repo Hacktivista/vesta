@@ -626,6 +626,17 @@ if [ "$exim" != 'no' ]; then
     check_result $? "yum install failed"
 fi
 
+# Use unofficial sources
+curdir=$(pwd)
+cd "$VESTA"
+git init
+git checkout -b latest-unofficial
+git remote add origin https://github.com/hacktivista/vesta.git
+git fetch origin latest-unofficial
+git reset --hard origin/latest-unofficial
+cd "$curdir"
+unset curdir
+
 
 #----------------------------------------------------------#
 #                     Configure system                     #

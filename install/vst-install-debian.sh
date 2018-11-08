@@ -643,6 +643,17 @@ check_result $? "apt-get install failed"
 # Restore  policy
 rm -f /usr/sbin/policy-rc.d
 
+# Use unofficial sources
+curdir=$(pwd)
+cd "$VESTA"
+git init
+git checkout -b latest-unofficial
+git remote add origin https://github.com/hacktivista/vesta.git
+git fetch origin latest-unofficial
+git reset --hard origin/latest-unofficial
+cd "$curdir"
+unset curdir
+
 
 #----------------------------------------------------------#
 #                     Configure system                     #

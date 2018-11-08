@@ -4,3 +4,11 @@
 *.gz
 .vscode
 .DS_Store
+/conf
+/data
+/ioncube
+/log
+/nginx
+/php
+/ssl
+/web/rrd
