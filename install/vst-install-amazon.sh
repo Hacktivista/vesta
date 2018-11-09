@@ -27,8 +27,7 @@ software="nginx httpd mod_ssl mod_ruid2 mod_fcgid mod_extract_forwarded
     postgresql-server postgresql-contrib phpPgAdmin e2fsprogs openssh-clients
     ImageMagick curl mc screen ftp zip unzip flex sqlite pcre sudo bc jwhois
     mailx lsof tar telnet rrdtool net-tools ntp GeoIP freetype fail2ban
-    which vesta vesta-nginx vesta-php vim-common expect vesta-ioncube
-    vesta-softaculous"
+    which vesta vesta-nginx vesta-php vim-common expect vesta-softaculous"
 
 # Defining help function
 help() {
@@ -625,6 +624,17 @@ if [ "$exim" != 'no' ]; then
         --exclude=php5\* --exclude=httpd24\* roundcubemail
     check_result $? "yum install failed"
 fi
+
+# Use unofficial sources
+curdir=$(pwd)
+cd "$VESTA"
+git init
+git checkout -b latest-unofficial
+git remote add origin https://github.com/hacktivista/vesta.git
+git fetch origin latest-unofficial
+git reset --hard origin/latest-unofficial
+cd "$curdir"
+unset curdir
 
 
 #----------------------------------------------------------#

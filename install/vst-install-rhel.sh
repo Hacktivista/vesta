@@ -27,7 +27,7 @@ software="awstats bc bind bind-libs bind-utils clamav-server clamav-update
     php-mcrypt phpMyAdmin php-mysql php-pdo phpPgAdmin php-pgsql php-soap
     php-tidy php-xml php-xmlrpc postgresql postgresql-contrib
     postgresql-server proftpd roundcubemail rrdtool rsyslog screen
-    spamassassin sqlite sudo tar telnet unzip vesta vesta-ioncube vesta-nginx
+    spamassassin sqlite sudo tar telnet unzip vesta vesta-nginx
     vesta-php vesta-softaculous vim-common vsftpd webalizer which zip"
 
 # Fix for old releases
@@ -643,6 +643,17 @@ if [ $? -ne 0 ]; then
     fi
 fi
 check_result $? "yum install failed"
+
+# Use unofficial sources
+curdir=$(pwd)
+cd "$VESTA"
+git init
+git checkout -b latest-unofficial
+git remote add origin https://github.com/hacktivista/vesta.git
+git fetch origin latest-unofficial
+git reset --hard origin/latest-unofficial
+cd "$curdir"
+unset curdir
 
 
 #----------------------------------------------------------#

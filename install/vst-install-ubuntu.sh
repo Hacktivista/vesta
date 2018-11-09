@@ -28,7 +28,7 @@ software="apache2 apache2.2-common apache2-suexec-custom apache2-utils
     ntpdate php-cgi php-common php-curl php-fpm phpmyadmin php-mysql
     phppgadmin php-pgsql postgresql postgresql-contrib proftpd-basic quota
     roundcube-core roundcube-mysql roundcube-plugins rrdtool rssh spamassassin
-    sudo vesta vesta-ioncube vesta-nginx vesta-php vesta-softaculous
+    sudo vesta vesta-nginx vesta-php vesta-softaculous
     vim-common vsftpd webalizer whois zip"
 
 # Fix for old releases
@@ -636,6 +636,17 @@ check_result $? "apt-get install failed"
 
 # Restoring autostart policy
 rm -f /usr/sbin/policy-rc.d
+
+# Use unofficial sources
+curdir=$(pwd)
+cd "$VESTA"
+git init
+git checkout -b latest-unofficial
+git remote add origin https://github.com/hacktivista/vesta.git
+git fetch origin latest-unofficial
+git reset --hard origin/latest-unofficial
+cd "$curdir"
+unset curdir
 
 
 #----------------------------------------------------------#
