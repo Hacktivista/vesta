@@ -28,7 +28,7 @@ software="apache2 apache2.2-common apache2-suexec-custom apache2-utils
     ntpdate php-cgi php-common php-curl php-fpm phpmyadmin php-mysql
     phppgadmin php-pgsql postgresql postgresql-contrib proftpd-basic quota
     roundcube-core roundcube-mysql roundcube-plugins rrdtool rssh spamassassin
-    sudo vesta vesta-ioncube vesta-nginx vesta-php vesta-softaculous
+    sudo vesta vesta-nginx vesta-php vesta-softaculous
     vim-common vsftpd webalizer whois zip"
 
 # Fix for old releases

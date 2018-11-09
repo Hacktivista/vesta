@@ -27,7 +27,7 @@ software="awstats bc bind bind-libs bind-utils clamav-server clamav-update
     php-mcrypt phpMyAdmin php-mysql php-pdo phpPgAdmin php-pgsql php-soap
     php-tidy php-xml php-xmlrpc postgresql postgresql-contrib
     postgresql-server proftpd roundcubemail rrdtool rsyslog screen
-    spamassassin sqlite sudo tar telnet unzip vesta vesta-ioncube vesta-nginx
+    spamassassin sqlite sudo tar telnet unzip vesta vesta-nginx
     vesta-php vesta-softaculous vim-common vsftpd webalizer which zip"
 
 # Fix for old releases
